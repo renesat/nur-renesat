@@ -2,7 +2,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "activitywatch";
+  pname = "activitywatch-bin";
   version = "0.11.0";
 
   src = fetchzip {
