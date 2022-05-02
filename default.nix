@@ -1,8 +1,8 @@
-{ system ? builtins.currentSystem, pkgs ? import <nixpkgs> { inherit system; }
-}:
+{ system ? builtins.currentSystem, pkgs ? import <nixpkgs> {
+  inherit system;
+  overlays = (import ./overlays.nix);
+} }:
 
-with pkgs;
-with lib;
 let
   packages = {
     autorestic = pkgs.callPackage ./pkgs/autorestic { };
@@ -10,4 +10,4 @@ let
     datalad = pkgs.callPackage ./pkgs/datalad { };
   };
   supportedSystem = (name: pkg: builtins.elem system pkg.meta.platforms);
-in (filterAttrs supportedSystem packages)
+in (pkgs.lib.filterAttrs supportedSystem packages)
