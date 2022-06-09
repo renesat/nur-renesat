@@ -43,6 +43,5 @@ stdenv.mkDerivation rec {
     description = "A modal keyboard-driven virtual pointer";
     homepage = "https://github.com/rvaiya/warpd";
     platforms = platforms.unix;
-    maintainers = with maintainers; [ renesat ];
   };
 }
