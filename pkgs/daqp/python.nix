@@ -27,9 +27,9 @@ python3.pkgs.buildPythonPackage rec {
   '';
 
   meta = with lib; {
-    description = "A dual active-set algorithm for convex quadratic programming ";
+    description = "A dual active-set algorithm for convex quadratic programming";
     homepage = "https://github.com/darnstrom/daqp";
     license = licenses.mit;
-    #maintainers = with maintainers; [renesat];
+    maintainers = with maintainers; [renesat];
   };
 }

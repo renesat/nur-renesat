@@ -19,10 +19,10 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [cmake];
 
   meta = with lib; {
-#    description = "Quadratic programming solvers in Python with a unified API";
-#    homepage = "https://github.com/qpsolvers/qpsolvers";
-#    license = licenses.lgpl3;
+    description = "A dual active-set algorithm for convex quadratic programming";
+    homepage = "https://github.com/darnstrom/daqp";
+    license = licenses.mit;
     maintainers = with maintainers; [renesat];
-    platforms = [ "x86_64-linux" ];
+    inherit (cmake.meta) platforms;
   };
 }
