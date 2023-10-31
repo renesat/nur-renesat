@@ -27,6 +27,8 @@
     vegafusion-python-embed = pkgs.python3Packages.callPackage ./pkgs/vegafusion-python-embed {};
     vegafusion = pkgs.python3Packages.callPackage ./pkgs/vegafusion {inherit vl-convert-python vegafusion-python-embed;};
     questdb = pkgs.callPackage ./pkgs/questdb {};
+    aiolinkding = pkgs.callPackage ./pkgs/aiolinkding {};
+    linkding-cli = pkgs.callPackage ./pkgs/linkding-cli {inherit aiolinkding;};
   };
   supportedSystem = name: pkg: builtins.elem system pkg.meta.platforms;
 in
