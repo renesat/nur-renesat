@@ -1,5 +1,8 @@
-{ lib, stdenv, python3}:
-
+{
+  lib,
+  stdenv,
+  python3,
+}:
 python3.pkgs.buildPythonPackage rec {
   pname = "drawille";
   version = "0.1.0";
@@ -13,6 +16,6 @@ python3.pkgs.buildPythonPackage rec {
     description = " Pixel graphics in terminal with unicode braille characters";
     homepage = "https://github.com/asciimoo/drawille";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ renesat ];
+    maintainers = with maintainers; [renesat];
   };
 }

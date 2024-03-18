@@ -17,7 +17,7 @@ python3.pkgs.buildPythonPackage rec {
 
   nativeBuildInputs = with python3.pkgs; [unittestCheckHook];
 
-  propagatedBuildInputs = with python3.pkgs; [cython ];
+  propagatedBuildInputs = with python3.pkgs; [cython];
 
   postPatch = ''
     sed -i 's|../../../daqp|../..|' interfaces/daqp-python/setup.py

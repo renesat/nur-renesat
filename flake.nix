@@ -24,7 +24,6 @@
           buildInputs = with pkgs; [
             python3
             python3Packages.pip
-            packages.qpsolvers
           ];
         };
       };
