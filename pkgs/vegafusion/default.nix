@@ -4,7 +4,6 @@
   fetchFromGitHub,
   pytestCheckHook,
   pythonAtLeast,
-
   # Deps
   altair,
   pyarrow,
@@ -14,12 +13,6 @@
   packaging, # python >= 3.12
   vl-convert-python, # embed
   vegafusion-python-embed, # embed
-
-  # Test
-  vega_datasets,
-  polars,
-  duckdb,
-  scikit-image,
 }:
 buildPythonPackage rec {
   pname = "vegafusion";
@@ -32,14 +25,14 @@ buildPythonPackage rec {
     hash = "sha256-EoNbcMOTqyC/nFttQhWQ2iNGxSwZWkbnCL4W3O+D0As=";
   };
 
-  patches = [
-    ./distutils_fix.patch
-  ];
+  patches = (
+    lib.lists.optional (pythonAtLeast "3.12")
+    ./replace_distutils.patch # Fix for replace deprecated distutils
+  );
 
   sourceRoot = "${src.name}/python/vegafusion";
 
   doCheck = false;
-  # nativeBuildInputs = [pytestCheckHook];
 
   propagatedBuildInputs =
     [
@@ -51,15 +44,6 @@ buildPythonPackage rec {
     ]
     ++ lib.lists.optional (pythonAtLeast "3.12") packaging;
 
-  # checkInputs = [
-  #   vega_datasets
-  #   polars
-  #   duckdb
-  #   vl-convert-python
-  #   scikit-image
-  #   vegafusion-python-embed
-  # ];
-
   optional-dependencies = {
     embed = [
       vegafusion-python-embed
@@ -68,9 +52,9 @@ buildPythonPackage rec {
   };
 
   meta = with lib; {
-    description = " Pixel graphics in terminal with unicode braille characters";
-    homepage = "https://github.com/asciimoo/drawille";
-    license = licenses.gpl3;
+    description = "Core tools for using VegaFusion from Python";
+    homepage = "https://github.com/hex-inc/vegafusion";
+    license = lib.licenses.bsd3;
     maintainers = with maintainers; [renesat];
   };
 }

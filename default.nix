@@ -24,7 +24,7 @@
     taskwarrior3 = pkgs.callPackage ./pkgs/taskwarrior3 {};
 
     vl-convert-python = pkgs.python3Packages.callPackage ./pkgs/vl-convert-python {};
-    vegafusion-python-embed = pkgs.python3Packages.callPackage ./pkgs/vegafusion/vegafusion-python-embed.nix {};
+    vegafusion-python-embed = pkgs.python3Packages.callPackage ./pkgs/vegafusion-python-embed {};
     vegafusion = pkgs.python3Packages.callPackage ./pkgs/vegafusion {inherit vl-convert-python vegafusion-python-embed;};
   };
   supportedSystem = name: pkg: builtins.elem system pkg.meta.platforms;
