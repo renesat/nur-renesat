@@ -1,0 +1,22 @@
+diff --git a/vegafusion/connection/duckdb.py b/vegafusion/connection/duckdb.py
+index 574d72d5..a6acd8fe 100644
+--- a/vegafusion/connection/duckdb.py
++++ b/vegafusion/connection/duckdb.py
+@@ -4,7 +4,7 @@ import warnings
+ from . import SqlConnection, CsvReadOptions
+ 
+ from typing import Dict, Optional
+-from distutils.version import LooseVersion
++from packaging.version import Version
+ 
+ import duckdb
+ import pyarrow as pa
+@@ -134,7 +134,7 @@ def pyarrow_schema_to_select_replace(schema: pa.Schema, table_name: str) -> str:
+ class DuckDbConnection(SqlConnection):
+     def __init__(self, connection: duckdb.DuckDBPyConnection = None, fallback: bool = True, verbose: bool = False):
+         # Validate duckdb version
+-        if LooseVersion(duckdb.__version__) < LooseVersion("0.7.0"):
++        if Version(duckdb.__version__) < Version("0.7.0"):
+             raise ImportError(
+                 f"The VegaFusion DuckDB connection requires at least DuckDB version 0.7.0\n"
+                 f"Found version {duckdb.__version__}"
