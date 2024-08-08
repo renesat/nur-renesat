@@ -29,6 +29,7 @@
     questdb = pkgs.callPackage ./pkgs/questdb {};
     aiolinkding = pkgs.callPackage ./pkgs/aiolinkding {};
     linkding-cli = pkgs.callPackage ./pkgs/linkding-cli {inherit aiolinkding;};
+    "1fps" = pkgs.callPackage ./pkgs/1fps {};
   };
   supportedSystem = name: pkg: builtins.elem system pkg.meta.platforms;
 in
