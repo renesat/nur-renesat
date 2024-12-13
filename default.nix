@@ -12,26 +12,25 @@
     warpd = throw "Use `pkgs.warpd` instead";
   };
   packages = rec {
+    "1fps" = pkgs.callPackage ./pkgs/1fps {};
     activitywatch-bin = pkgs.callPackage ./pkgs/activitywatch-bin {};
-    hledger-utils = pkgs.callPackage ./pkgs/hledger-utils {};
-    drawilleplot = pkgs.callPackage ./pkgs/drawilleplot {};
-    drawille = pkgs.callPackage ./pkgs/drawille {};
-    math-preview = pkgs.callPackage ./pkgs/math-preview {};
     daqp = pkgs.callPackage ./pkgs/daqp {};
     daqp-python = pkgs.callPackage ./pkgs/daqp/python.nix {};
-    qpsolvers = pkgs.callPackage ./pkgs/qpsolvers {daqp = daqp-python;};
+    drawille = pkgs.callPackage ./pkgs/drawille {};
+    drawilleplot = pkgs.callPackage ./pkgs/drawilleplot {};
+    hledger-utils = pkgs.callPackage ./pkgs/hledger-utils {};
+    imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
+    math-preview = pkgs.callPackage ./pkgs/math-preview {};
     normcap = pkgs.callPackage ./pkgs/normcap {};
+    puffin = pkgs.callPackage ./pkgs/puffin {};
+    qpsolvers = pkgs.callPackage ./pkgs/qpsolvers {daqp = daqp-python;};
+    questdb = pkgs.callPackage ./pkgs/questdb {};
     taskwarrior3 = pkgs.callPackage ./pkgs/taskwarrior3 {};
 
-    vl-convert-python = pkgs.python3Packages.callPackage ./pkgs/vl-convert-python {};
-    vegafusion-python-embed = pkgs.python3Packages.callPackage ./pkgs/vegafusion-python-embed {};
-    vegafusion = pkgs.python3Packages.callPackage ./pkgs/vegafusion {inherit vl-convert-python vegafusion-python-embed;};
-    questdb = pkgs.callPackage ./pkgs/questdb {};
     aiolinkding = pkgs.python3Packages.callPackage ./pkgs/aiolinkding {};
+    arro3-core = pkgs.python3Packages.callPackage ./pkgs/arro3-core {};
     linkding-cli = pkgs.python3Packages.callPackage ./pkgs/linkding-cli {inherit aiolinkding;};
-    "1fps" = pkgs.callPackage ./pkgs/1fps {};
-    puffin = pkgs.callPackage ./pkgs/puffin {};
-    imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
+    vegafusion = pkgs.python3Packages.callPackage ./pkgs/vegafusion {inherit arro3-core;};
   };
   supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
 in
