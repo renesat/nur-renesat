@@ -31,6 +31,7 @@
     arro3-core = pkgs.python3Packages.callPackage ./pkgs/arro3-core {};
     linkding-cli = pkgs.python3Packages.callPackage ./pkgs/linkding-cli {inherit aiolinkding;};
     vegafusion = pkgs.python3Packages.callPackage ./pkgs/vegafusion {inherit arro3-core;};
+    vl-convert-python = pkgs.python3Packages.callPackage ./pkgs/vl-convert-python {};
   };
   supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
 in
