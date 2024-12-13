@@ -10,22 +10,22 @@
     autorestic = throw "Use `pkgs.autorestic` instead";
     datalad = throw "Use `pkgs.datalad` instead";
     warpd = throw "Use `pkgs.warpd` instead";
+    taskwarrior3 = throw "Use `pkgs.taskwarrior` instead";
+    "1fps" = throw "Use `pkgs._1fps` instead";
+    puffin = throw "Use `pkgs.puffin` instead";
+    math-preview = throw "Use `pkgs.math-preview` instead";
+    activitywatch-bin = throw "Use `pkgs.activitywatch` instead";
+    daqp-python = throw "Use `pkgs.python3Packages.daqp` instead";
+    drawille = throw "Use `pkgs.python3Packages.drawille` instead";
+    drawilleplot = throw "Use `pkgs.python3Packages.drawilleplot` instead";
+    hledger-utils = throw "Use `pkgs.hledger-utils` instead";
+    normcap = throw "Use `pkgs.normcap` instead";
+    qpsolvers = throw "Use `pkgs.python3Packages.qpsolvers` instead";
+    questdb = throw "Use `pkgs.questdb` instead";
   };
   packages = rec {
-    "1fps" = pkgs.callPackage ./pkgs/1fps {};
-    activitywatch-bin = pkgs.callPackage ./pkgs/activitywatch-bin {};
     daqp = pkgs.callPackage ./pkgs/daqp {};
-    daqp-python = pkgs.callPackage ./pkgs/daqp/python.nix {};
-    drawille = pkgs.callPackage ./pkgs/drawille {};
-    drawilleplot = pkgs.callPackage ./pkgs/drawilleplot {};
-    hledger-utils = pkgs.callPackage ./pkgs/hledger-utils {};
     imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
-    math-preview = pkgs.callPackage ./pkgs/math-preview {};
-    normcap = pkgs.callPackage ./pkgs/normcap {};
-    puffin = pkgs.callPackage ./pkgs/puffin {};
-    qpsolvers = pkgs.callPackage ./pkgs/qpsolvers {daqp = daqp-python;};
-    questdb = pkgs.callPackage ./pkgs/questdb {};
-    taskwarrior3 = pkgs.callPackage ./pkgs/taskwarrior3 {};
 
     aiolinkding = pkgs.python3Packages.callPackage ./pkgs/aiolinkding {};
     arro3-core = pkgs.python3Packages.callPackage ./pkgs/arro3-core {};
