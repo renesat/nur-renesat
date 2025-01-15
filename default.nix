@@ -27,6 +27,7 @@
     daqp = pkgs.callPackage ./pkgs/daqp {};
     imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
     vl-convert = pkgs.callPackage ./pkgs/vl-convert {};
+    dedoc = pkgs.callPackage ./pkgs/dedoc {};
 
     flatlatex = pkgs.python3Packages.callPackage ./pkgs/flatlatex {};
     sixelcrop = pkgs.python3Packages.callPackage ./pkgs/sixelcrop {};
