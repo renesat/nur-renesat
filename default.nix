@@ -28,6 +28,7 @@
     imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
     vl-convert = pkgs.callPackage ./pkgs/vl-convert {};
     dedoc = pkgs.callPackage ./pkgs/dedoc {};
+    age-edit = pkgs.callPackage ./pkgs/age-edit {};
 
     flatlatex = pkgs.python3Packages.callPackage ./pkgs/flatlatex {};
     sixelcrop = pkgs.python3Packages.callPackage ./pkgs/sixelcrop {};
