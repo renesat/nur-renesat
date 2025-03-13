@@ -46,4 +46,4 @@
   };
   supportedSystem = _: pkg: builtins.elem system pkg.meta.platforms;
 in
-  (pkgs.lib.filterAttrs supportedSystem packages) // aliases
+  pkgs.lib.filterAttrs supportedSystem (packages // aliases)
