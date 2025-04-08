@@ -30,6 +30,7 @@
     questdb = lazyPackageWarn "Please use `questdb` from nixpkgs: `pkgs.questdb`" pkgs.questdb;
   };
   packages = rec {
+    voyage = pkgs.callPackage ./pkgs/voyage {};
     toutui = pkgs.callPackage ./pkgs/toutui {};
     daqp = pkgs.callPackage ./pkgs/daqp {};
     imap-backup = pkgs.callPackage ./pkgs/imap-backup {};
