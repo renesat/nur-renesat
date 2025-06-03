@@ -12,7 +12,6 @@
 buildPythonPackage rec {
   pname = "tubefeed";
   version = "2.1.3";
-
   disabled = pythonOlder "3.10";
 
   src = fetchFromGitLab {
@@ -21,6 +20,10 @@ buildPythonPackage rec {
     tag = version;
     hash = "sha256-88+h8AXLnD9PPVGNcdrQWqV79xZTgyZz4pUcNgRJQ0Y=";
   };
+
+  patches = [
+    ./entry_points.patch
+  ];
 
   dependencies = [
     aiofiles
