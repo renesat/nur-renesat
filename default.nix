@@ -30,6 +30,7 @@
     questdb = lazyPackageWarn "Please use `questdb` from nixpkgs: `pkgs.questdb`" pkgs.questdb;
   };
   packages = rec {
+    yamusic-tui = pkgs.callPackage ./pkgs/yamusic-tui {};
     wwan-utils = pkgs.callPackage ./pkgs/wwan-utils {};
     voyage = pkgs.callPackage ./pkgs/voyage {};
     toutui = pkgs.callPackage ./pkgs/toutui {};
