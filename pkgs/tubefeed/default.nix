@@ -23,6 +23,7 @@ buildPythonPackage rec {
 
   patches = [
     ./entry_points.patch
+    ./datetime_parse_fix.patch
   ];
 
   dependencies = [
