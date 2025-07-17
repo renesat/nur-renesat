@@ -30,6 +30,8 @@ buildPythonPackage rec {
 
   build-system = [setuptools];
 
+  pythonRelaxDeps = true;
+
   dependencies = [
     aiofiles
     aiohttp
