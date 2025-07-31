@@ -30,13 +30,19 @@
       perSystem = {
         config,
         pkgs,
+        lib,
         system,
         ...
       }: {
         _module.args.pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays.nix;
-          config = {};
+          config = {
+            allowUnfreePredicate = pkg:
+              builtins.elem (lib.getName pkg) [
+                "1fps"
+              ];
+          };
         };
 
         packages = import ./default.nix {
