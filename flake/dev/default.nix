@@ -24,9 +24,13 @@
     };
 
     devshells.default = {
-      packages = [config.treefmt.build.wrapper];
+      packages = [];
 
       commands = [
+        {
+          package = config.treefmt.build.wrapper;
+          help = "Code formatter";
+        }
         {
           package = pkgs.nix-tree;
           help = "Interactively browse dependency graphs of Nix derivations";
